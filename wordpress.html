@@ -1,4 +1,5 @@
 <pre>
+<code>
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
@@ -96,4 +97,5 @@ function scripts_footer() {
     add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
 add_action( 'wp_enqueue_scripts', 'scripts_footer' );
+</code>
 </pre>
