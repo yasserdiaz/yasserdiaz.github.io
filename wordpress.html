@@ -1,6 +1,5 @@
 <pre>
-<code>
-<IfModule mod_rewrite.c>
+&lt;IfModule mod_rewrite.c&gt;
     RewriteEngine On
     RewriteBase /
     RewriteRule ^index\.php$ - [L]
@@ -17,10 +16,10 @@
     #RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?hostname.com [NC]
     #RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?hostname.com[NC]
     #RewriteRule \.(jpg|jpeg|png|gif)$ – [NC,F,L]
-</IfModule>
+&lt;/IfModule&gt;
 
 # EXPIRES CACHING
-<IfModule mod_expires.c>
+&lt;IfModule mod_expires.c&gt;
 	ExpiresActive On
 	ExpiresDefault "access plus 1 weeks"
 	ExpiresByType image/x-icon "access plus 1 month"
@@ -34,25 +33,25 @@
 	ExpiresByType application/x-javascript "access plus 1 month"
 	ExpiresByType text/html "access plus 1 weeks"
 	ExpiresByType application/xhtml+xml "access plus 1 weeks"
-</IfModule>
+&lt;/IfModule&gt;
 # EXPIRES CACHING
 
 # BEGIN Cache-Control Headers
-<filesMatch "\.(ico|jpe?g|png|gif|swf)$">
+&lt;filesMatch "\.(ico|jpe?g|png|gif|swf)$"&gt;
 	Header set Cache-Control "public"
-</filesMatch>
-<filesMatch "\.(css)$">
+&lt;/filesMatch&gt;
+&lt;filesMatch "\.(css)$"&gt;
 	Header set Cache-Control "public"
-</filesMatch>	
-<filesMatch "\.(js)$">
+&lt;/filesMatch&gt;	
+&lt;filesMatch "\.(js)$"&gt;
 	Header set Cache-Control "private"
-</filesMatch>	
-<filesMatch "\.(x?html?|php)$">
+&lt;/filesMatch&gt;	
+&lt;filesMatch "\.(x?html?|php)$"&gt;
 	Header set Cache-Control "private, must-revalidate"
-</filesMatch>	
+&lt;/filesMatch&gt;	
 # END Cache-Control Headers
 
-<IfModule mod_deflate.c>
+&lt;IfModule mod_deflate.c&gt;
 	# Compress HTML, CSS, JavaScript, Text, XML and fonts
 	AddOutputFilterByType DEFLATE application/javascript
 	AddOutputFilterByType DEFLATE application/rss+xml
@@ -81,7 +80,7 @@
 	BrowserMatch ^Mozilla/4\.0[678] no-gzip
 	BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
 	Header append Vary User-Agent
-</IfModule>
+&lt;/IfModule&gt;
 
 
 
@@ -97,5 +96,4 @@ function scripts_footer() {
     add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
 add_action( 'wp_enqueue_scripts', 'scripts_footer' );
-</code>
 </pre>
