@@ -6,21 +6,21 @@
 
 `#!/bin/sh`
 
-`find /var/backup/*.gz -mtime +6 -exec rm -f {} \;`
+`find /dir/to/backup/*.gz -mtime +6 -exec rm -f {} \;`
 
-`mysqldump -u root -p"password" --lock-tables=false dbName | gzip -9 > /var/backup/$(date +%F)_FileName.sql.gz`
+`mysqldump -u root -p"password" --lock-tables=false dbName | gzip -9 > /dir/to/backup/$(date +%F)_FileName.sql.gz`
 
-`tar zcvf $(date +%F)_site_backup.tar.gz --exclude="/var/www/html/wp-content/uploads" /var/www/html/`
+`tar zcvf $(date +%F)_site_backup.tar.gz --exclude="/dir/folder/tar/exclude" /dir/folder/tar/`
 
 ## Backup Database Mysql
 
-`mysqldump -u root -p"password" --lock-tables=false comunim3_CCRM | gzip -9 > fileName.sql.gz`
+`mysqldump -u root -p"password" --lock-tables=false dbName | gzip -9 > fileName.sql.gz`
 
 ## Pack
 
 `tar zcvf site_backup.tar.gz /var/www/html/`
 
-`tar zcvf site_backup_lite.tar.gz --exclude="/var/www/html/wp-content/uploads" /var/www/html/`
+`tar zcvf site_backup_lite.tar.gz --exclude="/dir/folder/tar/exclude" /dir/folder/tar/`
 
 ## Unpack
 
@@ -42,10 +42,10 @@
 
 `chown apache:apache -R folder/*`
 
-## Count 
+## Count on Power Shell Windows
 
 `Get-Content .\file.ext -ReadCount 10 | foreach { $_ -match "textFind" }`
 
-## Replace
+## Replace on Power Shell Windows
 
 `Get-Content .\file.ext | Foreach-Object {$_.Replace('textFind', 'textReplace')} | Set-Content fileResult.ext`
