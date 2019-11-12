@@ -32,9 +32,13 @@
 
 ## SET Permissions Site Folder & Files
 
-`find * -type d -print0 | xargs -0 chmod 0755 # for directories`
+`find . -type d -print0 | xargs -0 chmod 0755 # for directories`
 
 `find . -type f -print0 | xargs -0 chmod 0644 # for files`
+
+`chmod 440 wp-config.php`
+
+`chmod 444 .htaccess`
 
 ## SET Owner
 
