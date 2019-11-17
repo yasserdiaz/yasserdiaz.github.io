@@ -1,3 +1,22 @@
+SSL
+<pre>
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://www.example.com/$1 [R=301,L,NE]
+
+# BEGIN WordPress
+&lt;IfModule mod_rewrite.cc&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModulec&gt;
+# END WordPress
+</pre>
+
+Optimization
 <pre>
 &lt;IfModule mod_rewrite.c&gt;
     RewriteEngine On
@@ -81,9 +100,11 @@
 	BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
 	Header append Vary User-Agent
 &lt;/IfModule&gt;
+</pre>
 
-
-
+//* SSL
+define('FORCE_SSL', true);
+define('FORCE_SSL_ADMIN',true);
 
 //* Mover javascripts al footer
 function scripts_footer() {
@@ -96,4 +117,4 @@ function scripts_footer() {
     add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
 add_action( 'wp_enqueue_scripts', 'scripts_footer' );
-</pre>
+
