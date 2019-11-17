@@ -102,11 +102,14 @@ Optimization
 &lt;/IfModule&gt;
 </pre>
 
-//* SSL
+SSL
+<pre>
 define('FORCE_SSL', true);
 define('FORCE_SSL_ADMIN',true);
+</pre>
 
-//* Mover javascripts al footer
+Mover javascripts al footer
+<pre>
 function scripts_footer() {
     remove_action('wp_head', 'wp_print_scripts');
     remove_action('wp_head', 'wp_print_head_scripts', 9);
@@ -117,4 +120,4 @@ function scripts_footer() {
     add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
 add_action( 'wp_enqueue_scripts', 'scripts_footer' );
-
+</pre>
